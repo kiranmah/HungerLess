@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (hunger_less/config/settings/base.py - 3 = hunger_less/)
 APPS_DIR = ROOT_DIR.path('hunger_less')
@@ -111,8 +112,12 @@ MANAGERS = ADMINS
 # Uses django-environ to accept uri format
 # See: https://django-environ.readthedocs.io/en/latest/#supported-types
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://localhost/hunger_less'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(str(ROOT_DIR), 'hungerless.db'),
+    }
 }
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 
