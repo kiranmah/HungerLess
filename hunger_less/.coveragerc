@@ -1,0 +1,5 @@
+[run]
+include = hunger_less/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
