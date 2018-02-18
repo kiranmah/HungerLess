@@ -6,7 +6,7 @@
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-{% block inner %}
+<!-- {% block inner %}
 
 <h1>{% trans "Sign In" %}</h1>
 
@@ -44,5 +44,36 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
 </form>
 
-{% endblock %}
+{% endblock %} -->
+
+{% block content %}
+<div class="container-fluid">
+  <br>
+  <br>
+  <div class="row justify-content-center">
+      <div class="col col-md-10">
+    <div class="card">
+        
+        <div class="card-header">
+            <h1>{% trans "Sign In" %}</h1>
+          </div>
+          <div class="card-block">
+              <p>{% blocktrans %}If you have not created an account yet, then please<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+              <form class="login" method="POST" action="{% url 'account_login' %}">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  {% endif %}
+                  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                  <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                </form>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content%}
 
