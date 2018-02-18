@@ -48,6 +48,12 @@ class postCreate(CreateView):
         form = super(postCreate, self).get_form()
         form.fields['date'].widget.attrs.update({'class': 'datepicker'})
         return form
+        
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.user = self.request.user
+        #article.save()  # This is redundant, see comments.
+        return super(postCreate, self).form_valid(form)
 
 class postUpdate(UpdateView):
     model = post
@@ -58,3 +64,5 @@ class postUpdate(UpdateView):
         form = super(postUpdate, self).get_form()
         form.fields['date'].widget.attrs.update({'class': 'datepicker'})
         return form
+
+    

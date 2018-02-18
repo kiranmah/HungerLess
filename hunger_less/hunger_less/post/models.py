@@ -7,6 +7,9 @@ class foodtype(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
 class post(models.Model):
     date = models.DateTimeField(blank=False, null=False, verbose_name='Post Date')
     collectdate = models.DateTimeField(blank=False, null=False, verbose_name='Collect By Date') 
@@ -16,9 +19,12 @@ class post(models.Model):
     foodtype = models.ForeignKey(foodtype, on_delete=models.CASCADE)
     quantity = models.IntegerField( blank=False, null=False)
     quality = models.CharField(max_length=300, blank=True, null=True)
+    
     def __unicode__(self):
-        return self.description
+        return self.address
 
+    def __str__(self):
+        return self.name
 
 class postlink(models.Model):
     post = models.ForeignKey(post, on_delete=models.CASCADE)
