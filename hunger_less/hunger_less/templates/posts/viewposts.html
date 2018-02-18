@@ -131,7 +131,10 @@
 
     <!-- FLoating Button-->
     <br>
+    {% if request.user.is_staff %}
     <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="{% url 'post:post-add' %}">Add Post</a></div>
+    {% endif %}
+    
     
 
 {% endblock content %}

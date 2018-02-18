@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.core import serializers
+from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views import View
@@ -39,6 +40,7 @@ class allPostsListView(FilterView, SingleTableView):
         print(context)
         return context
 
+@method_decorator(staff_member_required, name='dispatch')
 class postCreate(CreateView):
     model = post
     template_name = "posts/post_form.html"
@@ -54,7 +56,8 @@ class postCreate(CreateView):
         post.user = self.request.user
         #article.save()  # This is redundant, see comments.
         return super(postCreate, self).form_valid(form)
-
+        
+@method_decorator(staff_member_required, name='dispatch')
 class postUpdate(UpdateView):
     model = post
     template_name = "posts/post_form.html"

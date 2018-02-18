@@ -21,11 +21,11 @@ class post(models.Model):
     quality = models.CharField(max_length=300, blank=True, null=True)
     
     def __unicode__(self):
-        return self.address
+        return self.description
 
     def __str__(self):
-        return self.name
-
+        return self.description
+        
 class postlink(models.Model):
     post = models.ForeignKey(post, on_delete=models.CASCADE)
     foodtype = models.ForeignKey(foodtype, on_delete=models.CASCADE)
