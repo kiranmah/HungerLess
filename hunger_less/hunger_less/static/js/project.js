@@ -20,3 +20,6 @@ Issues with the above approach:
 */
 $('.form-group').removeClass('row');
 
+$('.dateinput').datepicker().on('changeDate', function(){
+    $(this).datepicker('hide');
+  }); ;

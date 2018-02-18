@@ -3,14 +3,14 @@
 {% load django_tables2 %} {% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+
 <div class="sidebar">
   <nav class="sidebar-nav">
     <ul class="nav">
             <li class="nav-title">
                     Filters
                     </li>
-            <form action="" method="get">
+            <form action="" method="get" style="margin-left:10px;text-align:left;">
                     {{ filter.form|crispy }}
                     <input type="submit" />
                 </form>
@@ -30,10 +30,11 @@
             
 
         <div class="animated fadeIn row justify-content-center">
-            <div class="col-md-10">
+            <div class="card-deck">
                     {% for row in table.page.object_list|default:table.rows %} {# support pagination #}
                     {% block table.tbody.row %}
-                    <div class="card ">
+                    <div class="col-md-6 ">
+                    <div class="card " style="margin-bottom: 15px;margin-top:15px;">
                     <tr {{ row.attrs.as_html }}>
                         {% for column, cell in row.items %}
                             <td {{ column.attrs.td.as_html }}>{% if column.localize == None %}{{ cell }}{% else %}{% if column.localize %}{{ cell|localize }}{% else %}
@@ -41,6 +42,7 @@
                         {% endfor %}
                     </tr>
                     </div>
+            </div>
                     {% endblock table.tbody.row %}
                     {% empty %}
                     {% if table.empty_text %}
@@ -106,6 +108,6 @@
     <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="{% url 'post:post-add' %}">Add Post</a></div>
     {% endif %}
     
-</div>
+
 
 {% endblock content %}

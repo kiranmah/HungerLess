@@ -46,9 +46,11 @@ class PostTable(tables.Table):
         if(self.requestuser==record.user):
             return mark_safe("<div class=\"card-footer text-muted\">\
                         <small class=\"float-sm-right\">%s</small>\
-                </div><button userid=\"%s\" id=\"%s\"type=\"button\" class=\"btn btn-danger\" aria-label=\"Close\"\
-  <span aria-hidden=\"true\">Remove</span>\
-</button>" % (escape(value.strftime('%d %B %Y')),escape(record.user.pk),escape(record.pk)))
+                </div><button userid=\"%s\" id=\"%s\"type=\"button\" class=\"btn btn-sm btn-primary\" onclick=\"location.href = '/post/post/%s';\" aria-label=\"Close\">\
+  Update\
+</button><button userid=\"%s\" id=\"%s\"type=\"button\" class=\"btn btn-danger\" onclick=\"location.href = '/post/posts/delete/%s';\" aria-label=\"Close\">\
+  Remove\
+</button>" % (escape(value.strftime('%d %B %Y')),escape(record.user.pk),escape(record.pk),escape(record.pk),escape(record.user.pk),escape(record.pk),escape(record.pk)))
         else:
             return mark_safe("<div class=\"card-footer text-muted\">\
                         <small class=\"float-sm-right\">%s</small></div>" % (escape(value.strftime('%d %B %Y'))))
