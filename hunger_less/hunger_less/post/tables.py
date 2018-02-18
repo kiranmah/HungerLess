@@ -31,7 +31,7 @@ class PostTable(tables.Table):
 
     def render_address(self,value,record):
         return mark_safe("<ul class=\"list-group list-group-flush\">\
-                        <li class=\"list-group-item\">Address: %s</li>" % (escape(value)))
+                        <li class=\"list-group-item\">Address: %s <large class=\"float-sm-right\">Contact: %s </large></li>" % (escape(value),escape(record.user.Contact)))
 
     def render_foodtype(self,value,record):
         return mark_safe("<li class=\"list-group-item\">Food Type: %s" % (escape(value)))
