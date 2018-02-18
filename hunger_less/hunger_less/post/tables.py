@@ -14,9 +14,9 @@ class PostTable(tables.Table):
 
     class Meta:
         model = post
-        order_by = '-date'
+        order_by = 'collectdate'
         fields = ('date','collectdate','address','description','usercompany','foodtype','quantity')
-        sequence = ('usercompany','date','address','foodtype','quantity','description','collectdate')
+        sequence = ('usercompany','collectdate','address','foodtype','quantity','description','date')
 
     def __init__(self, *args, **kwargs):
         tuser = kwargs.pop("user")  
@@ -26,7 +26,7 @@ class PostTable(tables.Table):
     def render_usercompany(self,value,record):
         return mark_safe("<div class=\"card-header\">Company: %s" % (escape(value)))
 
-    def render_date(self,value,record):
+    def render_collectdate(self,value,record):
         return mark_safe(" <large class=\"float-sm-right\">Pick up By: %s</large></div>" % (escape(value.strftime('%d %B %Y'))))
 
     def render_address(self,value,record):
@@ -42,7 +42,7 @@ class PostTable(tables.Table):
     def render_description(self,value,record):
         return mark_safe("<li class=\"list-group-item\">Description: %s</li></ul>" % (escape(value)))
 
-    def render_collectdate(self,value,record):
+    def render_date(self,value,record):
         if(self.requestuser==record.user):
             return mark_safe("<div class=\"card-footer text-muted\">\
                         <small class=\"float-sm-right\">%s</small>\
