@@ -40,6 +40,25 @@ class allPostsListView(FilterView, SingleTableView):
         print(context)
         return context
 
+@method_decorator(login_required, name='dispatch')
+class myPostsListView(FilterView, SingleTableView):
+    queryset = post.objects.all()
+    table_class = PostTable
+    template_name = "posts/viewposts.html"
+    paginate_by = 15
+    filterset_class = PostFilter
+
+    def get_queryset(self, **kwargs):
+        qs = super(myPostsListView,self).get_queryset()
+        qs = qs.filter(user=self.request.user)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super(myPostsListView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        print(context)
+        return context
+
 @method_decorator(staff_member_required, name='dispatch')
 class postCreate(CreateView):
     model = post

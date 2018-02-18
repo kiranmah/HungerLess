@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 
 urlpatterns = [
         url(r'^$', allPostsListView.as_view(), name='posts'),
+        url(r'^myposts/$', myPostsListView.as_view(), name='myposts'),
         url(r'^post/add/', postCreate.as_view(success_url=reverse_lazy('post:posts')), name='post-add', ),
         url(r'^post/<int:pk>/', postUpdate.as_view(), name='post-update'),
 ]
