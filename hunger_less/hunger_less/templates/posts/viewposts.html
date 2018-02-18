@@ -2,6 +2,7 @@
 {% load static %}
 {% load django_tables2 %} {% load i18n %}
 {% block content %}
+<div class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 <div class="sidebar">
   <nav class="sidebar-nav">
     <ul class="nav">
@@ -104,6 +105,6 @@
     <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="{% url 'post:post-add' %}">Add Post</a></div>
     {% endif %}
     
-    
+</div>
 
 {% endblock content %}
