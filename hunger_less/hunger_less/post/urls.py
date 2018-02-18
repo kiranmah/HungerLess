@@ -9,5 +9,6 @@ from . import views
 
 urlpatterns = [
        url(r'^$', TemplateView.as_view(template_name='posts/viewposts.html'), name='posts'),
+       url(r'^$', TemplateView.as_view(template_name='posts/addpost.html'), name='addpost'),
 
 ]

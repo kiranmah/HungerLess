@@ -15,25 +15,23 @@
 
     {% block css %}
     
-    <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+   <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    
-    <!-- This file stores project-specific CSS -->
-    
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+  <!-- Main styles for this application -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- Styles required by this views -->
+
     
     
     {% endblock %}
 
   </head>
 
-  <body>
+  <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 
-    <div class="m-b-1">
+    <!-- <div class="m-b-1">
       <nav class="navbar navbar-expand-md " style="background-color: #e3f2fd;">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -73,10 +71,55 @@
         </div>
       </nav>
 
-    </div>
+    </div>  -->
+
+    <header class="app-header navbar">
+      <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <ul class="nav navbar-nav d-md-down-none">
+        <li class="nav-item px-3">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item d-md-down-none ">
+            {# URL provided by django-allauth/account/urls.py #}
+            <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %} <i class="fa fa-user"></i></a>
+          </li>
+        </li>
+        <li class="nav-item d-md-down-none">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+        </li>
+        {% else %}
+        <li class="nav-item d-md-down-none">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+        </li>
+        <li class="nav-item d-md-down-none">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+        </li>
+        {% endif %}
+      </ul>
+      <button class="navbar-toggler aside-menu-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    </header>
 
   
-    <div class="container">
+    <div class="app-body">
 
       {% if messages %}
           {% for message in messages %}
@@ -97,17 +140,23 @@
     <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
       
-      <!-- Required by Bootstrap v4 beta -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+      <!-- Bootstrap and necessary plugins -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://raw.githubusercontent.com/HubSpot/pace/v0.5.3/pace.min.js"></script>
 
-      <!-- Your stuff: Third-party javascript libraries go here -->
-      
+  <!-- Plugins and scripts required by all views -->
+  <!-- <script src="node_modules/chart.js/dist/Chart.min.js"></script> -->
 
-      <!-- place project specific Javascript in this file -->
-      
-      <script src="{% static 'js/project.js' %}"></script>
+  <!-- CoreUI main scripts -->
+  <script src="{% static 'js/app.js' %}"></script>
+
+  <!-- Plugins and scripts required by this views -->
+
+  <!-- Custom scripts required by this view -->
+  <script src="{% static 'js/views/main.js' %}"></script>
+
       
 
     {% endblock javascript %}
