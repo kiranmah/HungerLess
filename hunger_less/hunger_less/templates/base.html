@@ -34,58 +34,16 @@
 
   </head>
 
-  <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-
-    <!-- <div class="m-b-1">
-      <nav class="navbar navbar-expand-md " style="background-color: #e3f2fd;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Hunger Less</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %} <i class="fa fa-user"></i></a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
-
-    </div>  -->
+  <body>
 
     <header class="app-header navbar">
-      <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+      <!-- <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+      <!-- <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
   
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
@@ -131,9 +89,6 @@
         </li>
         {% endif %}
       </ul>
-      <button class="navbar-toggler aside-menu-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-      </button>
   
     </header>
 

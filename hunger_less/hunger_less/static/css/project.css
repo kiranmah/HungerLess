@@ -11,9 +11,3 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
-
-@media (min-width: 1200px){
-  .container {
-    max-width: 100% ;
-}
-}
