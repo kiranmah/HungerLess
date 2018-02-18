@@ -1,1 +1,155 @@
-{% extends "base.html" %}
+{% extends "template.html" %}
+{% block content %}
+<div class="fh5co-hero">
+        <div class="fh5co-overlay"></div>
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(static/images/food.jpg);">
+            <div class="desc animate-box">
+                <h2><strong>Donate</strong> for the <strong>Hungry</strong></h2>
+                <span><a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}">Donate Now</a></span>
+            </div>
+        </div>
+
+    </div>
+    <!-- end:header-top -->
+    <div id="fh5co-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="feature-left">
+                        <span class="icon">
+                            <i class="icon-profile-male"></i>
+                        </span>
+                        <div class="feature-copy">
+                            <h3>Become a volunteer</h3>
+                            <p>Help in any way you can, from pick ups to meal distribution.</p>
+                            <p><a href="#">Learn More</a></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-left">
+                        <span class="icon">
+                            <i class="icon-happy"></i>
+                        </span>
+                        <div class="feature-copy">
+                            <h3>Happy Giving</h3>
+                            <p>Extra food at home? Sign up to start donating.</p>
+                            <p><a href="#">Learn More</a></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-left">
+                        <span class="icon">
+                            <i class="icon-wallet"></i>
+                        </span>
+                        <div class="feature-copy">
+                            <h3>Donation</h3>
+                            <p>Farms and Groceries with Extra Suppiles are welcomed to donate.</p>
+                            <p><a href="#">Learn More</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-feature-product" class="fh5co-section-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center heading-section">
+                    <h3>Giving is Virtue.</h3>
+                    <p>Many families have go to sleep hungry everyday, any dontation can help someone in need.</p>
+                    <a href="#" class="btn btn-primary btn-lg">Learn About Us</a>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <!-- fh5co-content-section -->
+
+    <div id="fh5co-blog-section" class="fh5co-section-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                    <h3>Articles and News</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-bottom-padded-md">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="fh5co-blog animate-box">
+                        <a href="#"><img class="img-responsive" src="static/images/blue.jpg" alt=""></a>
+                        <div class="blog-text">
+                            <div class="prod-title">
+                                <h3><a href=""#>Composting Spoiled vegetables</a></h3>
+                                <span class="posted_by">Sep. 15th</span>
+                                <p>How to create a composte at home</p>
+                                <p><a href="#">Learn More...</a></p>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="fh5co-blog animate-box">
+                        <a href="#"><img class="img-responsive" src="static/images/blue.jpg" alt=""></a>
+                        <div class="blog-text">
+                            <div class="prod-title">
+                                <h3><a href=""#>How long does food last in the frige</a></h3>
+                                <span class="posted_by">Sep. 15th</span>
+                                <p>How long to any food item safe to eat.</p>
+                                <p><a href="#">Learn More...</a></p>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="fh5co-blog animate-box">
+                        <a href="#"><img class="img-responsive" src="static/images/blue.jpg" alt=""></a>
+                        <div class="blog-text">
+                            <div class="prod-title">
+                                <h3><a href=""#>Buying dried goods </a></h3>
+                                <span class="posted_by">Sep. 15th</span>
+                                <p>Dried good have a longer shelf life. do what you can to stop food wasteage</p>
+                                <p><a href="#">Learn More...</a></p>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="clearfix visible-md-block"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                    <a href="#" class="btn btn-primary btn-lg">All Articles</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- fh5co-blog-section -->
+    <footer>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <p class="fh5co-social-icons">
+                            <a href="#"><i class="icon-twitter2"></i></a>
+                            <a href="#"><i class="icon-facebook2"></i></a>
+                            <a href="#"><i class="icon-instagram"></i></a>
+                            <a href="#"><i class="icon-dribbble2"></i></a>
+                            <a href="#"><i class="icon-youtube"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% endblock content %}

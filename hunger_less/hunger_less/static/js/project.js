@@ -19,3 +19,15 @@ Issues with the above approach:
 4. Undocumented: No mention in the documentation, or it's too hard for me to find
 */
 $('.form-group').removeClass('row');
+
+$('.dateinput').datepicker().on('changeDate', function(){
+    $(this).datepicker('hide');
+  }); ;
+   
+$('.datepicker').datepicker().on('changeDate', function(){
+$(this).datepicker('hide');
+}); ;
+
+$('.datetimeinput').datepicker().on('changeDate', function(){
+    $(this).datepicker('hide');
+    }); ;

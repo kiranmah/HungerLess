@@ -1,41 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %}User: {{ object.username }}{% endblock %}
-
+{% load django_tables2 %} {% load i18n %}
+{% load crispy_forms_tags %}
 {% block content %}
-<div class="sidebar">
+
+<div class="sidebar" style="background-color:#0073e5;">
   <nav class="sidebar-nav">
     <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Filter By</a>
-      </li>
-
-      <li class="nav-title">
-        Produce Type
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-title">
-        Location
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-     
+            <li class="nav-title">
+                    Filters
+                    </li>
+            <form action="" method="get" style="margin-left:10px;text-align:left;">
+                    {{ filter.form|crispy }}
+                    <input type="submit" />
+                </form>
     </ul>
   </nav>
-  <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+  <!-- <button class="sidebar-minimizer brand-minimizer" type="button"></button> -->
 </div>
 
 
@@ -43,57 +24,91 @@
 
  <!-- Main content -->
  <main class="main">
-
-    <!-- Breadcrumb -->
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">Home</li>
-      <li class="breadcrumb-item"><a href="#">Admin</a></li>
-      <li class="breadcrumb-item active">Posts</li>
-
-      <!-- Breadcrumb Menu-->
-    </ol>
+     <br>
+        {% if request.user.is_staff %}
+        <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="{% url 'post:post-add' %}">Add Post</a></div>
+        {% endif %}
 
     <div class="container-fluid">
-        <div class="animated fadeIn">
+            
+
+        <div class="animated fadeIn row justify-content-center">
             <div class="card-deck">
-                <div class="card ">
-                    <div class="card-header">
-                        Company Name <large class="float-sm-right">Pick up By: Date</large>
+                    {% for row in table.page.object_list|default:table.rows %} {# support pagination #}
+                    {% block table.tbody.row %}
+                    <div class="col-md-6 ">
+                    <div class="card " style="margin-bottom: 15px;margin-top:15px;">
+                    <tr {{ row.attrs.as_html }}>
+                        {% for column, cell in row.items %}
+                            <td {{ column.attrs.td.as_html }}>{% if column.localize == None %}{{ cell }}{% else %}{% if column.localize %}{{ cell|localize }}{% else %}
+                                {{ cell|unlocalize }}{% endif %}{% endif %}</td>
+                        {% endfor %}
+                    </tr>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Location:</li>
-                        <li class="list-group-item">Food Type <large class="float-sm-right">Quantity</large></li>
-                        <li class="list-group-item">Description</li>
-                    </ul>
-                <div class="card-footer text-muted">
-                        <small class="float-sm-right">post date</small>
-                </div>
-                </div>
-                <!--End Card-->
-                <div class="card ">
-                        <div class="card-header">
-                            Company Name <large class="float-sm-right">Pick up By: Date</large>
+            </div>
+                    {% endblock table.tbody.row %}
+                    {% empty %}
+                    {% if table.empty_text %}
+                    {% block table.tbody.empty_text %}
+                    <div class="card ">
+                            <div class="card-header">
+                                Company Name <large class="float-sm-right">Pick up By: Date</large>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Location:</li>
+                                <li class="list-group-item">Food Type <large class="float-sm-right">Quantity</large></li>
+                                <li class="list-group-item">Description</li>
+                            </ul>
+                        <div class="card-footer text-muted">
+                                <small class="float-sm-right">post date</small>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Location:</li>
-                            <li class="list-group-item">Food Type <large class="float-sm-right">Quantity</large></li>
-                            <li class="list-group-item">Description</li>
-                        </ul>
-                    <div class="card-footer text-muted">
-                            <small class="float-sm-right">post date</small>
-                    </div>
-                    </div>
-                    <!--End Card-->
+                        </div>
+                    {% endblock table.tbody.empty_text %}
+                    {% endif %}
+                    {% endfor %}
                         
                 </div>
 
         </div>
-
+            {% if table.page %}
+            {% with table.page.paginator.count as total %}
+            {% with table.page.object_list|length as count %}
+            {% block pagination %}
+            <ul class="pagination row justify-content-center">
+                {% if table.page.has_previous %}
+                    {% block pagination.previous %}
+                        <li class="previous" style='margin:0 5px 0 5px;'>
+                            <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">{% trans "Previous" %}</a>
+                        </li>
+                    {% endblock pagination.previous %}
+                {% endif %}
+            
+                {% if table.page.has_previous or table.page.has_next %}
+                    {% block pagination.cardinality %}
+                        <li class="cardinality">
+                            {% blocktrans with table.page.number as current and table.paginator.num_pages as total %}Page {{ current }} of {{ total }}{% endblocktrans %}
+                        </li>
+                    {% endblock pagination.cardinality %}
+                {% endif %}
+            
+                {% if table.page.has_next %}
+                    {% block pagination.next %}
+                        <li class="next" style='margin:0 5px 0 5px;'>
+                            <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">{% trans "Next" %}</a>
+                        </li>
+                    {% endblock pagination.next %}
+                {% endif %}
+            </ul>
+            {% endblock pagination %}
+            {% endwith %}
+            {% endwith %}
+            {% endif %}
     </div>
 
     <!-- FLoating Button-->
     <br>
-    <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="addpost.html">Add Post</a></div>
     
+    
+
 
 {% endblock content %}
