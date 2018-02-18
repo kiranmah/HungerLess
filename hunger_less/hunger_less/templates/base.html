@@ -15,9 +15,13 @@
 
     {% block css %}
     
-    <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    
+   <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+
+  <!-- Main styles for this application -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- Styles required by this views -->
 
     <!-- Your stuff: Third-party CSS libraries go here -->
     
@@ -32,384 +36,111 @@
 
   </head>
 
-  <body>
-		<div id="fh5co-wrapper">
-      <div id="fh5co-page">
+  <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 
-      <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-          <div class="nav-header">
-            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-            <h1 id="fh5co-logo"><a href="{% url 'home' %}">Hunger Less</a></h1>
-            <!-- START #fh5co-menu-wrap -->
-            <nav id="fh5co-menu-wrap" role="navigation">
-              <ul class="sf-menu" id="fh5co-primary-menu">
-                <li class="active">
-                  <a href="{% url 'home' %}">Home</a>
-                </li> 
-                <li>
-                  <a href="#" class="fh5co-sub-ddown">Projects</a>
-                   <ul class="fh5co-sub-menu">
-                     <li><a href="#">Water World</a></li>
-                     <li><a href="#">Cloth Giving</a></li>
-                     <li><a href="#">Medical Mission</a></li>
-                  </ul>
-                </li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
-      
-      
-  
-      <div class="fh5co-hero">
-        <div class="fh5co-overlay"></div>
-        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
-          <div class="desc animate-box">
-            <h2><strong>Donate</strong> for the <strong>Poor Children</strong></h2>
-            <span>HandCrafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FreeHTML5.co</a></span>
-            <span><a class="btn btn-primary btn-lg" href="#">Donate Now</a></span>
-          </div>
-        </div>
-  
-      </div>
-      <!-- end:header-top -->
-      <div id="fh5co-features">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-  
-              <div class="feature-left">
-                <span class="icon">
-                  <i class="icon-profile-male"></i>
-                </span>
-                <div class="feature-copy">
-                  <h3>Become a volunteer</h3>
-                  <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                  <p><a href="#">Learn More</a></p>
-                </div>
-              </div>
-  
-            </div>
-  
-            <div class="col-md-4">
-              <div class="feature-left">
-                <span class="icon">
-                  <i class="icon-happy"></i>
-                </span>
-                <div class="feature-copy">
-                  <h3>Happy Giving</h3>
-                  <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                  <p><a href="#">Learn More</a></p>
-                </div>
-              </div>
-  
-            </div>
-            <div class="col-md-4">
-              <div class="feature-left">
-                <span class="icon">
-                  <i class="icon-wallet"></i>
-                </span>
-                <div class="feature-copy">
-                  <h3>Donation</h3>
-                  <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                  <p><a href="#">Learn More</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div id="fh5co-feature-product" class="fh5co-section-gray">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center heading-section">
-              <h3>Giving is Virtue.</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            </div>
-          </div>
-  
-          <div class="row row-bottom-padded-md">
-            <div class="col-md-12 text-center animate-box">
-              <p><img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
-            </div>
-            <div class="col-md-6 text-center animate-box">
-              <p><img src="images/cover_bg_2.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
-            </div>
-            <div class="col-md-6 text-center animate-box">
-              <p><img src="images/cover_bg_3.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="feature-text">
-                <h3>Love</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="feature-text">
-                <h3>Compassion</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="feature-text">
-                <h3>Charity</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-          </div>
-  
-          
-        </div>
-      </div>
-  
-      
-      <div id="fh5co-portfolio">
-        <div class="container">
-  
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-              <h3>Our Gallery</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-            </div>
-          </div>
-  
-          
-          <div class="row row-bottom-padded-md">
-            <div class="col-md-12">
-              <ul id="fh5co-portfolio-list">
-  
-                <li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/cover_bg_1.jpg); ">
-                  <a href="#" class="color-3">
-                    <div class="case-studies-summary">
-                      <span>Give Love</span>
-                      <h2>Donation is caring</h2>
-                    </div>
-                  </a>
-                </li>
-              
-                <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/cover_bg_3.jpg); ">
-                  <a href="#" class="color-4">
-                    <div class="case-studies-summary">
-                      <span>Give Love</span>
-                      <h2>Donation is caring</h2>
-                    </div>
-                  </a>
-                </li>
-  
-                <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/cover_bg_1.jpg); "> 
-                  <a href="#" class="color-5">
-                    <div class="case-studies-summary">
-                      <span>Give Love</span>
-                      <h2>Donation is caring</h2>
-                    </div>
-                  </a>
-                </li>
-                <li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/cover_bg_3.jpg); ">
-                  <a href="#" class="color-6">
-                    <div class="case-studies-summary">
-                      <span>Give Love</span>
-                      <h2>Donation is caring</h2>
-                    </div>
-                  </a>
-                </li>
-              </ul>		
-            </div>
-          </div>
-  
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4 text-center animate-box">
-              <a href="#" class="btn btn-primary btn-lg">See Gallery</a>
-            </div>
-          </div>
-  
-          
-        </div>
-      </div>
-      
-  
-      
-      <div id="fh5co-content-section" class="fh5co-section-gray">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-              <h3>Our Philantrophist</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="fh5co-testimonial text-center animate-box">
-                <figure>
-                  <img src="images/person_1.jpg" alt="user">
-                </figure>
-                <blockquote>
-                  <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-                </blockquote>
-                <span>Jean Doe, XYZ Co.</span>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="fh5co-testimonial text-center animate-box">
-                <figure>
-                  <img src="images/person_2.jpg" alt="user">
-                </figure>
-                <blockquote>
-                  <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-                </blockquote>
-                <span>John Doe, XYZ Co.</span>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="fh5co-testimonial text-center animate-box">
-                <figure>
-                  <img src="images/person_3.jpg" alt="user">
-                </figure>
-                <blockquote>
-                  <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-                </blockquote>
-                <span>John Doe, XYZ Co.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- fh5co-content-section -->
-  
-      <div id="fh5co-services-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-              <h3>Our Projects. Support Us</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-md-4 col-sm-4">
-              <div class="services animate-box">
-                <span><i class="icon-heart"></i></span>
-                <h3>Water Project In Kenya</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <div class="services animate-box">
-                <span><i class="icon-heart"></i></span>
-                <h3>Shelter Giving</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <div class="services animate-box">
-                <span><i class="icon-heart"></i></span>
-                <h3>Shelter Giving</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <div class="services animate-box">
-                <span><i class="icon-heart"></i></span>
-                <h3>Water Project In Kenya</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <div class="services animate-box">
-                <span><i class="icon-heart"></i></span>
-                <h3>Water Project In Kenya</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <div class="services animate-box">
-                <span><i class="icon-heart"></i></span>
-                <h3>Midical Mission</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- END What we do -->
-  
-  
-      <div id="fh5co-blog-section" class="fh5co-section-gray">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-              <h3>Recent From Blog</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row row-bottom-padded-md">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="fh5co-blog animate-box">
-                <a href="#"><img class="img-responsive" src="images/cover_bg_1.jpg" alt=""></a>
-                <div class="blog-text">
-                  <div class="prod-title">
-                    <h3><a href=""#>Medical Mission in Southern Kenya</a></h3>
-                    <span class="posted_by">Sep. 15th</span>
-                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p><a href="#">Learn More...</a></p>
-                  </div>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="fh5co-blog animate-box">
-                <a href="#"><img class="img-responsive" src="images/cover_bg_2.jpg" alt=""></a>
-                <div class="blog-text">
-                  <div class="prod-title">
-                    <h3><a href=""#>Medical Mission in Southern Kenya</a></h3>
-                    <span class="posted_by">Sep. 15th</span>
-                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p><a href="#">Learn More...</a></p>
-                  </div>
-                </div> 
-              </div>
-            </div>
-            <div class="clearfix visible-sm-block"></div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="fh5co-blog animate-box">
-                <a href="#"><img class="img-responsive" src="images/cover_bg_3.jpg" alt=""></a>
-                <div class="blog-text">
-                  <div class="prod-title">
-                    <h3><a href=""#>Medical Mission in Southern Kenya</a></h3>
-                    <span class="posted_by">Sep. 15th</span>
-                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p><a href="#">Learn More...</a></p>
-                  </div>
-                </div> 
-              </div>
-            </div>
-            <div class="clearfix visible-md-block"></div>
-          </div>
-  
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4 text-center animate-box">
-              <a href="#" class="btn btn-primary btn-lg">Our Blog</a>
-            </div>
-          </div>
-  
-        </div>
-      </div>
+    <!-- <div class="m-b-1">
+      <nav class="navbar navbar-expand-md " style="background-color: #e3f2fd;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">Hunger Less</a>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %} <i class="fa fa-user"></i></a>
+              </li>
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+              </li>
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+
+    </div>  -->
+
+    <header class="app-header navbar">
+      <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <ul class="nav navbar-nav d-md-down-none">
+        <li class="nav-item px-3">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item d-md-down-none ">
+            {# URL provided by django-allauth/account/urls.py #}
+            <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %} <i class="fa fa-user"></i></a>
+          </li>
+        </li>
+        <li class="nav-item d-md-down-none">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+        </li>
+        {% else %}
+        <li class="nav-item d-md-down-none">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+        </li>
+        <li class="nav-item d-md-down-none">
+          {# URL provided by django-allauth/account/urls.py #}
+          <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+        </li>
+        {% endif %}
+      </ul>
+      <button class="navbar-toggler aside-menu-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    </header>
+
+  
+    <div class="app-body">
+
+      {% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+          {% endfor %}
+      {% endif %}
+
+      {% block content %}
+
+      {% endblock content %}
+
+    </div> <!-- /container -->
+
+    {% block modal %}{% endblock modal %}
 
     <footer>
 			<div id="footer">
@@ -438,7 +169,12 @@
       <!-- Required by Bootstrap v4 beta -->
       <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+      <script src="https://raw.githubusercontent.com/HubSpot/pace/v0.5.3/pace.min.js"></script>
 
+
+       <!-- CoreUI main scripts -->
+  <script src="{% static 'js/app.js' %}"></script>
       <!-- Your stuff: Third-party javascript libraries go here -->
       <script src="{% static 'js/project.js' %}"></script>
       <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>

@@ -1,7 +1,96 @@
 {% load django_tables2 %} {% load i18n %}
 
 {% block content %}
+<div class="sidebar">
+  <nav class="sidebar-nav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Filter By</a>
+      </li>
 
-{% render_table table %} 
+      <li class="nav-title">
+        Produce Type
+      </li>
+      <li class="nav-item">
+            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
+      </li>
+      <li class="nav-item">
+            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
+      </li>
+      <li class="nav-title">
+        Location
+      </li>
+      <li class="nav-item">
+            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
+      </li>
+      <li class="nav-item">
+            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
+      </li>
+      <li class="nav-item">
+            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
+      </li>
+     
+    </ul>
+  </nav>
+  <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+</div>
+
+
+<!--Posts-->
+
+ <!-- Main content -->
+ <main class="main">
+
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item"><a href="#">Admin</a></li>
+      <li class="breadcrumb-item active">Posts</li>
+
+      <!-- Breadcrumb Menu-->
+    </ol>
+
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card-deck">
+                <div class="card ">
+                    <div class="card-header">
+                        Company Name <large class="float-sm-right">Pick up By: Date</large>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Location:</li>
+                        <li class="list-group-item">Food Type <large class="float-sm-right">Quantity</large></li>
+                        <li class="list-group-item">Description</li>
+                    </ul>
+                <div class="card-footer text-muted">
+                        <small class="float-sm-right">post date</small>
+                </div>
+                </div>
+                <!--End Card-->
+                <div class="card ">
+                        <div class="card-header">
+                            Company Name <large class="float-sm-right">Pick up By: Date</large>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Location:</li>
+                            <li class="list-group-item">Food Type <large class="float-sm-right">Quantity</large></li>
+                            <li class="list-group-item">Description</li>
+                        </ul>
+                    <div class="card-footer text-muted">
+                            <small class="float-sm-right">post date</small>
+                    </div>
+                    </div>
+                    <!--End Card-->
+                        
+                </div>
+
+        </div>
+
+    </div>
+
+    <!-- FLoating Button-->
+    <br>
+    <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="addpost.html">Add Post</a></div>
+    
 
 {% endblock content %}
