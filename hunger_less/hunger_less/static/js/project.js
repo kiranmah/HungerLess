@@ -23,3 +23,11 @@ $('.form-group').removeClass('row');
 $('.dateinput').datepicker().on('changeDate', function(){
     $(this).datepicker('hide');
   }); ;
+   
+$('.datepicker').datepicker().on('changeDate', function(){
+$(this).datepicker('hide');
+}); ;
+
+$('.datetimeinput').datepicker().on('changeDate', function(){
+    $(this).datepicker('hide');
+    }); ;
