@@ -36,8 +36,8 @@
     <div class="container-fluid">
             
 
-        <div class="animated fadeIn">
-            <div class="card-deck">
+        <div class="animated fadeIn row justify-content-center">
+            <div class="col-md-10">
                     {% for row in table.page.object_list|default:table.rows %} {# support pagination #}
                     {% block table.tbody.row %}
                     <div class="card ">

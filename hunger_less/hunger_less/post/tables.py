@@ -18,28 +18,40 @@ class PostTable(tables.Table):
         fields = ('date','collectdate','address','description','usercompany','foodtype','quantity')
         sequence = ('usercompany','date','address','foodtype','quantity','description','collectdate')
 
+    def __init__(self, *args, **kwargs):
+        tuser = kwargs.pop("user")  
+        super(PostTable, self).__init__(*args, **kwargs)
+        self.requestuser = tuser
+
     def render_usercompany(self,value,record):
-        return mark_safe("<div class=\"card-header\">%s" % (escape(value)))
+        return mark_safe("<div class=\"card-header\">Company: %s" % (escape(value)))
 
     def render_date(self,value,record):
         return mark_safe(" <large class=\"float-sm-right\">Pick up By: %s</large></div>" % (escape(value.strftime('%d %B %Y'))))
 
     def render_address(self,value,record):
         return mark_safe("<ul class=\"list-group list-group-flush\">\
-                        <li class=\"list-group-item\">%s</li>" % (escape(value)))
+                        <li class=\"list-group-item\">Address: %s</li>" % (escape(value)))
 
     def render_foodtype(self,value,record):
-        return mark_safe("<li class=\"list-group-item\">%s" % (escape(value)))
+        return mark_safe("<li class=\"list-group-item\">Food Type: %s" % (escape(value)))
 
     def render_quantity(self,value,record):
-        return mark_safe("<large class=\"float-sm-right\">%s</large></li>" % (escape(value)))
+        return mark_safe("<large class=\"float-sm-right\">Quantity: %s tonnes</large></li>" % (escape(value)))
     
     def render_description(self,value,record):
-        return mark_safe("<li class=\"list-group-item\">%s</li></ul>" % (escape(value)))
+        return mark_safe("<li class=\"list-group-item\">Description: %s</li></ul>" % (escape(value)))
 
     def render_collectdate(self,value,record):
-        return mark_safe("<div class=\"card-footer text-muted\">\
+        if(self.requestuser==record.user):
+            return mark_safe("<div class=\"card-footer text-muted\">\
                         <small class=\"float-sm-right\">%s</small>\
-                </div>" % (escape(value.strftime('%d %B %Y'))))
+                </div><button userid=\"%s\" id=\"%s\"type=\"button\" class=\"btn btn-danger\" aria-label=\"Close\"\
+  <span aria-hidden=\"true\">Remove</span>\
+</button>" % (escape(value.strftime('%d %B %Y')),escape(record.user.pk),escape(record.pk)))
+        else:
+            return mark_safe("<div class=\"card-footer text-muted\">\
+                        <small class=\"float-sm-right\">%s</small></div>" % (escape(value.strftime('%d %B %Y'))))
+        
 
 

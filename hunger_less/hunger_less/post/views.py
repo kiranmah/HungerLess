@@ -30,6 +30,11 @@ class allPostsListView(FilterView, SingleTableView):
     paginate_by = 15
     filterset_class = PostFilter
 
+    def get_table_kwargs(self):
+        kwargs = super(allPostsListView, self).get_table_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
     def get_queryset(self, **kwargs):
         qs = super(allPostsListView,self).get_queryset()
         return qs
@@ -47,6 +52,11 @@ class myPostsListView(FilterView, SingleTableView):
     template_name = "posts/viewposts.html"
     paginate_by = 15
     filterset_class = PostFilter
+
+    def get_table_kwargs(self):
+        kwargs = super(myPostsListView, self).get_table_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
 
     def get_queryset(self, **kwargs):
         qs = super(myPostsListView,self).get_queryset()
