@@ -12,8 +12,44 @@
   border-color: #eed3d7;
 }
 
+<<<<<<< HEAD
+.header-top {
+  background: #0080ff !important;
+}
+#fh5co-logo a {
+  color: #0080ff !important;
+}
+#fh5co-logo a:hover, #fh5co-logo a:focus {
+  color: #0080ff !important;
+}
+
+.sf-menu a:hover, .sf-menu a:focus {
+  color: #0080ff !important;
+}
+
+.sf-menu li:hover a, .sf-menu li.sfHover a, .sf-menu ul li:hover a, .sf-menu ul li.sfHover a, .sf-menu li.active a {
+  color: #0080ff !important;
+}
+
+.btn.btn-primary {
+  background: #0080ff !important;
+}
+
+.heading-section:after {
+  background:  #0080ff !important;
+}
+
+
+a:hover {
+  color:  #0080ff !important;
+}
+
+#footer {
+  background:  #0080ff !important;
+=======
 @media (min-width: 1200px){
   .container {
     max-width: 100% ;
 }
+>>>>>>> 3a082757533f94f0040d3b3e75050404251d3304
 }

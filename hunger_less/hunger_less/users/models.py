@@ -17,6 +17,7 @@ class User(AbstractUser):
     ContactName = models.CharField(_('Name of Contact Person'), blank=False, max_length=255)
     CompanyName = models.CharField(_('Name of Company'), blank=False, max_length=255)
     BusinessType = models.CharField(max_length=2,blank=False, choices=BusinessTypes)
+    Contact = models.CharField(_('Contact'), blank=True,null=True, max_length=255)
     CompanyAddress = models.CharField(_('Business Address'), blank=False, max_length=255)
     OtherInfo = models.CharField(_('Other Info'), blank=True, max_length=255)
 

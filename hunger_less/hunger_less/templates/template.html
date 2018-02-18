@@ -8,7 +8,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Charity &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>Hunger Less</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -57,7 +57,7 @@
     <link href="{% static 'css/home/superfish.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/home/style.css' %}" rel="stylesheet">
-
+	<link href="{% static 'css/project.css' %}" rel="stylesheet">
 
     <!-- Modernizr JS -->
     <script src="{% static 'js/home/modernizr-2.6.2.min.js' %}"></script>
@@ -107,7 +107,33 @@
 								</ul>
 							</li>
 							<li><a class="nav-link" href="{% url 'about' %}">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+							{% if request.user.is_authenticated %}
+							{% if request.user.is_staff %}
+							<li class="nav-item px-3">
+								<a class="nav-link" href="{% url 'post:posts' %}">Posts</a>
+							  </li>
+							  {% endif %}
+							  {% endif %}
+							  {% if request.user.is_authenticated %}
+							  <li>{# URL provided by django-allauth/account/urls.py #}
+								<a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %} <i class="fa fa-user"></i></a>
+							</li>
+							<li class="nav-item d-md-down-none">
+								{# URL provided by django-allauth/account/urls.py #}
+								<a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+							  </li>
+							  {% else %}
+							  <li class="nav-item d-md-down-none">
+								{# URL provided by django-allauth/account/urls.py #}
+								<a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+							  </li>
+							  <li class="nav-item d-md-down-none">
+								{# URL provided by django-allauth/account/urls.py #}
+								<a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+							  </li>
+							  {% endif %}
+
 						</ul>
 					</nav>
 				</div>
