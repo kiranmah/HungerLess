@@ -5,36 +5,13 @@
 <div class="sidebar">
   <nav class="sidebar-nav">
     <ul class="nav">
-            <form action="" method="get">
-                    {{ filter.form.as_p }}
-                    <input type="submit" />
-                </form>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Filter By</a>
-      </li>
-
-      <li class="nav-title">
-        Produce Type
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-title">
-        Location
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-     
+        <li class="nav-item">
+                <a class="nav-link" href=""><i class="icon-speedometer"></i> Filter By</a>
+        </li>
+        <form action="" method="get">
+            {{ filter.form.as_ul}}
+            <input type="submit" />
+        </form>
     </ul>
   </nav>
   <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -45,15 +22,7 @@
 
  <!-- Main content -->
  <main class="main">
-
-    <!-- Breadcrumb -->
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">Home</li>
-      <li class="breadcrumb-item"><a href="#">Admin</a></li>
-      <li class="breadcrumb-item active">Posts</li>
-
-      <!-- Breadcrumb Menu-->
-    </ol>
+<hr>
     
     <div class="container-fluid">
             
