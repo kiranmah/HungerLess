@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="sidebar" style="background-color:#005bb7 ;">
+<div class="sidebar" style="background-color:#0073e5;">
   <nav class="sidebar-nav">
     <ul class="nav">
             <li class="nav-title">
@@ -24,8 +24,11 @@
 
  <!-- Main content -->
  <main class="main">
-<hr>
-    
+     <br>
+        {% if request.user.is_staff %}
+        <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="{% url 'post:post-add' %}">Add Post</a></div>
+        {% endif %}
+
     <div class="container-fluid">
             
 
@@ -104,9 +107,7 @@
 
     <!-- FLoating Button-->
     <br>
-    {% if request.user.is_staff %}
-    <div class="container-fluid"><a class="btn-floating btn-lg btn-success pull-right" href="{% url 'post:post-add' %}">Add Post</a></div>
-    {% endif %}
+    
     
 
 
