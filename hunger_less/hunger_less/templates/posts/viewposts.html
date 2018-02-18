@@ -74,10 +74,10 @@
             {% with table.page.paginator.count as total %}
             {% with table.page.object_list|length as count %}
             {% block pagination %}
-            <ul class="pagination">
+            <ul class="pagination row justify-content-center">
                 {% if table.page.has_previous %}
                     {% block pagination.previous %}
-                        <li class="previous">
+                        <li class="previous" style='margin:0 5px 0 5px;'>
                             <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">{% trans "Previous" %}</a>
                         </li>
                     {% endblock pagination.previous %}
@@ -93,7 +93,7 @@
             
                 {% if table.page.has_next %}
                     {% block pagination.next %}
-                        <li class="next">
+                        <li class="next" style='margin:0 5px 0 5px;'>
                             <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">{% trans "Next" %}</a>
                         </li>
                     {% endblock pagination.next %}
