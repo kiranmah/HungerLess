@@ -12,6 +12,7 @@
   border-color: #eed3d7;
 }
 
+<<<<<<< HEAD
 .header-top {
   background: #0080ff !important;
 }
@@ -45,4 +46,10 @@ a:hover {
 
 #footer {
   background:  #0080ff !important;
+=======
+@media (min-width: 1200px){
+  .container {
+    max-width: 100% ;
+}
+>>>>>>> 3a082757533f94f0040d3b3e75050404251d3304
 }
