@@ -22,7 +22,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 
-    fields = ['name', ]
+    fields = ['ContactName','CompanyName','BusinessType','CompanyAddress','OtherInfo' ]
 
     # we already imported User in the view code above, remember?
     model = User

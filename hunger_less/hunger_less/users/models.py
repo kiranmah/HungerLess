@@ -7,10 +7,20 @@ from django.utils.translation import ugettext_lazy as _
 
 @python_2_unicode_compatible
 class User(AbstractUser):
+    BusinessTypes=(
+        ('S','Supermarket'),
+        ('F','Farm'),
+        ('P','Produce Stall'),
+        ('Pi','Private Individual'),
+        ('Re','Restaurant'),
+    )
+    ContactName = models.CharField(_('Name of Contact Person'), blank=False, max_length=255)
+    CompanyName = models.CharField(_('Name of Company'), blank=False, max_length=255)
+    BusinessType = models.CharField(max_length=2,blank=False, choices=BusinessTypes)
+    CompanyAddress = models.CharField(_('Business Address'), blank=False, max_length=255)
+    OtherInfo = models.CharField(_('Other Info'), blank=True, max_length=255)
 
-    # First Name and Last Name do not cover name patterns
-    # around the globe.
-    name = models.CharField(_('Name of User'), blank=True, max_length=255)
+
 
     def __str__(self):
         return self.username

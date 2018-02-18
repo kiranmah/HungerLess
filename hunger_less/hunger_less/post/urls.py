@@ -4,10 +4,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
-
-from . import views
+from .views import *
 
 urlpatterns = [
-       url(r'^$', TemplateView.as_view(template_name='posts/viewposts.html'), name='posts'),
-
+        url(r'^$', allPostsListView.as_view(), name='posts'),
+        url(r'^post/add/', postCreate.as_view(), name='post-add'),
+        url(r'^post/<int:pk>/', postUpdate.as_view(), name='post-update'),
 ]

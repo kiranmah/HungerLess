@@ -43,6 +43,7 @@ DJANGO_APPS = [
     # 'django.contrib.humanize',
 
     # Admin
+    'jet',
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
@@ -50,6 +51,9 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'django_tables2',
+    'django_filters',
+
 ]
 
 # Apps specific for this project go here.
@@ -57,6 +61,7 @@ LOCAL_APPS = [
     # custom users app
     'hunger_less.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'hunger_less.post.apps.PostConfig',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
