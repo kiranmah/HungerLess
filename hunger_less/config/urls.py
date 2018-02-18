@@ -8,7 +8,7 @@ from django.views import defaults as default_views
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
-    url(r'^about/$', TemplateView.as_view(template_name='pages/contact.html'), name='contact'),
+    url(r'^contact/$', TemplateView.as_view(template_name='pages/contact.html'), name='contact'),
 
     # Django Admin, use {% url 'admin:index' %}
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS

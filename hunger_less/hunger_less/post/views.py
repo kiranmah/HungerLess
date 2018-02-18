@@ -21,6 +21,7 @@ from django.template.loader import render_to_string
 from django.http import HttpResponseRedirect
 from datetime import datetime, timedelta
 from django.core import mail
+from django.urls import reverse_lazy
 
 @method_decorator(login_required, name='dispatch')
 class allPostsListView(FilterView, SingleTableView):
@@ -96,5 +97,14 @@ class postUpdate(UpdateView):
         form = super(postUpdate, self).get_form()
         form.fields['date'].widget.attrs.update({'class': 'datepicker'})
         return form
+
+@method_decorator(staff_member_required, name='dispatch')
+class postDelete(DeleteView):
+    model = post
+    template_name = "posts/post_confirm_delete.html"
+    success_url = reverse_lazy('post:posts')
+
+    def get_success_url(self):
+        return reverse_lazy('post:posts')
 
     

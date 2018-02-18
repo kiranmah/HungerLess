@@ -4339,6 +4339,7 @@ tbody.collapse.show {
   width: 100%; }
 
 .card-deck {
+  width: 100%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -10522,7 +10523,7 @@ base-chart.chart {
     overflow-x: hidden;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    width: 200px; }
+    width: 270px; }
     .sidebar .sidebar-nav::-webkit-scrollbar {
       position: absolute;
       width: 10px;
@@ -10546,7 +10547,7 @@ base-chart.chart {
     min-height: 100%; }
   .sidebar .nav-title {
     padding: 0.75rem 1rem;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     color: #c2cfd6;
     text-transform: uppercase; }
