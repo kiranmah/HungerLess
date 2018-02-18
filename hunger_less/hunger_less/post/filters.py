@@ -12,8 +12,8 @@ class PostFilter(django_filters.FilterSet):
     queryset=foodtype.objects.all(),
     to_field_name='name'
     )
-    date = django_filters.DateFromToRangeFilter(label='Submission Date',widget=RangeWidget(attrs={'placeholder': 'MM/DD/YYYY'}))
-    collectdate = django_filters.DateFromToRangeFilter(label='Collection Deadline',widget=RangeWidget(attrs={'placeholder': 'MM/DD/YYYY'}))
+    date = django_filters.DateFilter(label='Submission Date')
+    collectdate = django_filters.DateFilter(label='Collection Deadline')
 
     class Meta:
         model = post

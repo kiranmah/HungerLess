@@ -1,40 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% load django_tables2 %} {% load i18n %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="sidebar">
   <nav class="sidebar-nav">
     <ul class="nav">
+            <li class="nav-title">
+                    Filters
+                    </li>
             <form action="" method="get">
-                    {{ filter.form.as_p }}
+                    {{ filter.form|crispy }}
                     <input type="submit" />
                 </form>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> Filter By</a>
-      </li>
-
-      <li class="nav-title">
-        Produce Type
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-title">
-        Location
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-      <li class="nav-item">
-            <span style="margin-left:20px; "> <label><input type="checkbox" value=""> Option 1</label>
-      </li>
-     
     </ul>
   </nav>
   <button class="sidebar-minimizer brand-minimizer" type="button"></button>
